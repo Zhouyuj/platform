@@ -1,7 +1,9 @@
 const express = require('express');
 const path = require('path');
-
 const app = express();
+const history = require('connect-history-api-fallback');
+
+app.use(history());
 
 // 中间件的资源公开
 app.use(express.static(path.join(__dirname, '../dist')));
