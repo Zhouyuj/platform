@@ -1,0 +1,6 @@
+<div [ngClass]="{ ' unauthorized ': !authorized }" class="icon-wrap">
+  <a (click)="goToUrl(url)" [ngClass]="{ ' unauthorized ': !authorized }">
+    <img [src]="imgUrl" class="icon-img" />
+    <h1 style="font-weight: bold; text-align: center;">{{ name }}</h1>
+  </a>
+</div>

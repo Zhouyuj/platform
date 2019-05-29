@@ -1,0 +1,38 @@
+.header-operate {
+  float: right;
+}
+
+.header-operate nz-dropdown {
+  margin-right: 10px;
+}
+
+.header-operate .change-bg {
+  display: inline;
+  margin-left: 10px;
+  cursor: pointer;
+  color: white;
+}
+
+.ant-layout {
+  background: initial;
+}
+
+.ant-layout-footer {
+  background: initial;
+}
+
+.unauthorized {
+  opacity: 0.4;
+}
+
+.icon-wrap {
+  padding: 0 10px 0 10px;
+  /* height: 180px; */
+}
+
+.icon-img {
+  padding: 10px;
+  height: 180px;
+  border-radius: 25px;
+  width: 200px;
+}

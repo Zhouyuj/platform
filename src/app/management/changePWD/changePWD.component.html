@@ -1,0 +1,92 @@
+<div class="changepwd-wrap" style="height: calc(100vh)">
+  <nz-layout style="height: 100%">
+    <nz-header style="background: lightblue">
+      <div style="cursor: pointer;display: inline;" (click)="goback()">
+        <i nz-icon nzType="left" nzTheme="outline"></i>返回
+      </div>
+      <h3 style="display: inline;margin-left: 40%">修改密码</h3>
+    </nz-header>
+    <nz-content>
+      <form
+        style="margin: 10% auto"
+        nz-form
+        [formGroup]="validateForm"
+        class="login-form"
+        (ngSubmit)="submitForm()"
+      >
+        <nz-form-item>
+          <nz-form-label
+            [nzSm]="6"
+            [nzXs]="24"
+            nzFor="username"
+            nzRequired
+            [nzOffset]="3"
+            >密码</nz-form-label
+          >
+          <nz-form-control [nzSpan]="6">
+            <nz-input-group>
+              <input
+                type="password"
+                nz-input
+                [(ngModel)]="password1"
+                formControlName="username"
+                placeholder="请填入密码"
+              />
+            </nz-input-group>
+            <nz-form-explain
+              *ngIf="
+                validateForm.get('username')?.dirty &&
+                validateForm.get('username')?.errors
+              "
+              >请输入密码</nz-form-explain
+            >
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-label
+            [nzSm]="6"
+            [nzXs]="24"
+            nzFor="password"
+            nzRequired
+            [nzOffset]="3"
+            >再次输入密码</nz-form-label
+          >
+          <nz-form-control [nzSpan]="6">
+            <nz-input-group>
+              <input
+                type="password"
+                nz-input
+                [(ngModel)]="password2"
+                formControlName="password"
+                placeholder="请再次输入密码"
+              />
+            </nz-input-group>
+            <nz-form-explain
+              *ngIf="
+                validateForm.get('password')?.dirty &&
+                validateForm.get('password')?.errors
+              "
+              >请再次输入密码</nz-form-explain
+            >
+            <nz-form-explain style="color: red" *ngIf="differentPWD"
+              >请输入相同密码</nz-form-explain
+            >
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-control [nzSpan]="6" [nzOffset]="9">
+            <button
+              style="width: 100%;"
+              nz-button
+              class="login-form-button"
+              [nzType]="'primary'"
+              [disabled]="!validateForm.valid"
+            >
+              确定
+            </button>
+          </nz-form-control>
+        </nz-form-item>
+      </form>
+    </nz-content>
+  </nz-layout>
+</div>
