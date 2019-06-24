@@ -1,6 +1,27 @@
 <div [ngClass]="{ ' unauthorized ': !authorized }" class="icon-wrap">
-  <a (click)="goToUrl(url)" [ngClass]="{ ' unauthorized ': !authorized }">
-    <img [src]="imgUrl" class="icon-img" />
-    <h1 style="font-weight: bold; text-align: center;">{{ name }}</h1>
+  <a
+    nz-popover
+    [nzTitle]="title"
+    [nzContent]="content"
+    [nzVisible]="!authorized && hover && !imgUrl.includes('Unknown')"
+    [nzTrigger]="hover"
+    (mouseenter)="timeoutHoverEnter()"
+    (mouseleave)="timeoutHoverLeave()"
+    (click)="goToUrl(url)"
+    [ngClass]="{ ' unauthorized ': !authorized }"
+    style="display: block;
+          width: 100%;
+          height: 90%;
+          text-align: center;"
+  >
+    <img
+      [src]="imgUrl"
+      class="icon-img"
+      style="
+            height: 90%;
+            border-radius: 25px;
+            width: 90%;"
+    />
+    <h3 style="font-weight: bold; text-align: center;">{{ name }}</h3>
   </a>
 </div>

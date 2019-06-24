@@ -47,14 +47,20 @@ export class LoginComponent implements OnInit {
       )
       .subscribe(
         res => {
-          console.log(res);
-          this.tokenService.setToken(res.data.accessToken);
-          this.tokenService.setUserId(res.data.userId);
-          this.tokenService.setUserName(this.username);
-          this.tokenService.setLinkIds(res.data.linkIds);
-          this.router.navigateByUrl('/index');
-          this.submitBtnValid = false;
-          this.messageService.remove(msgId);
+          if (res.data) {
+            console.log(res);
+            this.tokenService.setToken(res.data.accessToken);
+            this.tokenService.setUserId(res.data.userId);
+            this.tokenService.setUserName(this.username);
+            this.tokenService.setLinkIds(res.data.linkIds);
+            this.router.navigateByUrl('/index');
+            this.submitBtnValid = false;
+            this.messageService.remove(msgId);
+          } else {
+            this.submitBtnValid = false;
+            this.messageService.remove(msgId);
+            this.notification.create('error', '错误', '用户名或密码错误');
+          }
         },
         err => {
           this.submitBtnValid = false;

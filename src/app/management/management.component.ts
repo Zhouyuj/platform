@@ -12,7 +12,7 @@ import { ManagementService } from './management.service';
 export class ManagementComponent implements OnInit {
   subSystemInfos: any[] = [];
   selectedBackground: string;
-  backgrounds: string[] = ['banner', 'ocean', 'sky'];
+  backgrounds: string[] = ['banner', 'ocean', 'sky', 'banner-01', 'ocean-01'];
   isLoaded: boolean;
   username: string;
   linkIds: string;
@@ -62,6 +62,14 @@ export class ManagementComponent implements OnInit {
       this.selectedBackground = 'banner';
       localStorage.setItem('background', 'banner');
     }
+    this._preLoadBackgroundSource();
+  };
+
+  _preLoadBackgroundSource = () => {
+    this.backgrounds.forEach((b: string) => {
+      let img = new Image();
+      img.src = `../../assets/background/${b}.jpeg`;
+    });
   };
 
   changeBackground() {
@@ -79,7 +87,7 @@ export class ManagementComponent implements OnInit {
 
   setBackgroundImg = background => {
     document.body.style.backgroundSize = 'cover';
-    document.body.style.backgroundImage = `url(../../assets/background/${background}.jpg)`;
+    document.body.style.backgroundImage = `url(../../assets/background/${background}.jpeg)`;
   };
 
   logout = () => {

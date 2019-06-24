@@ -1,118 +1,87 @@
 <div class="login-wrap">
-  <div class="header">
-    <!-- <img src="../../assets/logo.jpeg" /> -->
-  </div>
-  <div class="body">
-    <div class="resource-header">
-      <!-- <img src="../../assets/hrp.jpeg" /> -->
-      <!-- <div
-        id="u12"
-        class="ax_default"
-        data-left="280"
-        data-top="125"
-        data-width="442"
-        data-height="83"
-      >
-        <div
-          id="u13"
-          class="ax_default"
-          data-left="280"
-          data-top="125"
-          data-width="442"
-          data-height="83"
-        >
-          <div id="u14" class="ax_default heading_1">
-            <div id="u14_div" class=""></div>
-            <div id="u14_text" class="text ">
-              <p><span>HRP</span></p>
-            </div>
-          </div>
+  <nz-layout>
+    <nz-header>
+      <div class="header">
+        <img src="../../assets/newlogo.png" />
+      </div>
+    </nz-header>
 
-          <div id="u15" class="ax_default heading_2">
-            <div id="u15_div" class=""></div>
-            <div id="u15_text" class="text ">
-              <p><span>医院资源管理系统</span></p>
-            </div>
-          </div>
-
-          <div id="u16" class="ax_default heading_2">
-            <div id="u16_div" class=""></div>
-            <div id="u16_text" class="text ">
-              <p><span>Hospital Resource Planning</span></p>
-            </div>
-          </div>
+    <nz-content>
+      <div class="body">
+        <!-- <div class="resource-header">
+          <img src="../../assets/hrp.jpeg" />
+        </div> -->
+        <div>
+          <h2 style="padding: 10px;color: rgb(101,167,248)">账户登录</h2>
+          <form
+            nz-form
+            [formGroup]="validateForm"
+            class="login-form"
+            (ngSubmit)="submitForm()"
+          >
+            <nz-form-item>
+              <nz-form-control [nzSpan]="12" [nzOffset]="6">
+                <nz-input-group [nzPrefix]="prefixUser">
+                  <input
+                    type="text"
+                    nz-input
+                    [(ngModel)]="username"
+                    formControlName="username"
+                    placeholder="请填入用户名"
+                  />
+                </nz-input-group>
+                <nz-form-explain
+                  *ngIf="
+                    validateForm.get('username')?.dirty &&
+                    validateForm.get('username')?.errors
+                  "
+                  >请填入用户名</nz-form-explain
+                >
+              </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+              <nz-form-control [nzSpan]="12" [nzOffset]="6">
+                <nz-input-group [nzPrefix]="prefixLock">
+                  <input
+                    type="password"
+                    nz-input
+                    [(ngModel)]="password"
+                    formControlName="password"
+                    placeholder="请输入密码"
+                  />
+                </nz-input-group>
+                <nz-form-explain
+                  *ngIf="
+                    validateForm.get('password')?.dirty &&
+                    validateForm.get('password')?.errors
+                  "
+                  >请输入密码</nz-form-explain
+                >
+              </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+              <nz-form-control [nzSpan]="12" [nzOffset]="6">
+                <nz-spin [nzSpinning]="submitBtnValid">
+                  <button
+                    style="width: 100%;border-radius: 20px"
+                    nz-button
+                    class="login-form-button"
+                    [disabled]="!validateForm.valid"
+                  >
+                    登录
+                  </button>
+                </nz-spin>
+              </nz-form-control>
+            </nz-form-item>
+          </form>
         </div>
-      </div> -->
-    </div>
-    <div>
-      <h3 style="padding: 10px;color: rgb(101,167,248)">账户登录</h3>
-      <form
-        nz-form
-        [formGroup]="validateForm"
-        class="login-form"
-        (ngSubmit)="submitForm()"
-      >
-        <nz-form-item>
-          <nz-form-control [nzSpan]="12" [nzOffset]="6">
-            <nz-input-group [nzPrefix]="prefixUser">
-              <input
-                type="text"
-                nz-input
-                [(ngModel)]="username"
-                formControlName="username"
-                placeholder="请填入用户名"
-              />
-            </nz-input-group>
-            <nz-form-explain
-              *ngIf="
-                validateForm.get('username')?.dirty &&
-                validateForm.get('username')?.errors
-              "
-              >请填入用户名</nz-form-explain
-            >
-          </nz-form-control>
-        </nz-form-item>
-        <nz-form-item>
-          <nz-form-control [nzSpan]="12" [nzOffset]="6">
-            <nz-input-group [nzPrefix]="prefixLock">
-              <input
-                type="password"
-                nz-input
-                [(ngModel)]="password"
-                formControlName="password"
-                placeholder="请输入密码"
-              />
-            </nz-input-group>
-            <nz-form-explain
-              *ngIf="
-                validateForm.get('password')?.dirty &&
-                validateForm.get('password')?.errors
-              "
-              >请输入密码</nz-form-explain
-            >
-          </nz-form-control>
-        </nz-form-item>
-        <nz-form-item>
-          <nz-form-control [nzSpan]="12" [nzOffset]="6">
-            <nz-spin [nzSpinning]="submitBtnValid">
-              <button
-                style="width: 100%;border-radius: 20px"
-                nz-button
-                class="login-form-button"
-                [disabled]="!validateForm.valid"
-              >
-                登录
-              </button>
-            </nz-spin>
-          </nz-form-control>
-        </nz-form-item>
-      </form>
-    </div>
-    <ng-template #prefixUser
-      ><i nz-icon type="user" [nzTheme]="'twotone'"></i
-    ></ng-template>
-    <ng-template #prefixLock
-      ><i nz-icon type="lock" [nzTheme]="'twotone'"></i
-    ></ng-template>
-  </div>
+        <ng-template #prefixUser
+          ><i nz-icon type="user" [nzTheme]="'twotone'"></i
+        ></ng-template>
+        <ng-template #prefixLock
+          ><i nz-icon type="lock" [nzTheme]="'twotone'"></i
+        ></ng-template>
+      </div>
+    </nz-content>
+  </nz-layout>
 </div>

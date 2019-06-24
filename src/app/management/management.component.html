@@ -18,13 +18,15 @@
     </nz-header>
     <nz-content>
       <nz-spin [nzSpinning]="isLoaded">
-        <div style="display: flex;flex-wrap: wrap;padding: 0 100px 0 100px">
-          <div *ngFor="let item of subSystemInfos" style="margin: 10px;">
+        <div style="display: flex;flex-wrap: wrap;padding: 10px 15% 10px 15%;">
+          <div *ngFor="let item of subSystemInfos" style="width: 18%;">
             <platform-icon
               [imgUrl]="item.imageUrl2"
               [name]="item.linkName"
               [url]="item.linkUrl"
               [authorized]="item.authorized"
+              [title]="item.title"
+              [content]="item.content"
             ></platform-icon>
           </div>
         </div>
