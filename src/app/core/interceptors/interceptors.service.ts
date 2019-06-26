@@ -18,7 +18,7 @@ export class InterceptorsService extends RebirthHttp {
   }
 
   public registerInterceptors() {
-    let url = 'http://47.106.179.127:8085';
+    let url = 'http://182.61.36.66:8085';
     this.rebirthHttpProvider
       .baseUrl(url)
       .addInterceptor({

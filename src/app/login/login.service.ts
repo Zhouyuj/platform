@@ -11,7 +11,7 @@ import {
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
-@BaseUrl('http://47.106.179.127:8085')
+@BaseUrl('http://182.61.36.66:8085')
 @Injectable({
   providedIn: 'root'
 })
