@@ -58,9 +58,9 @@ export class ManagementComponent implements OnInit {
       this.selectedBackground = background;
       this.setBackgroundImg(this.selectedBackground);
     } else {
-      this.setBackgroundImg('banner');
-      this.selectedBackground = 'banner';
-      localStorage.setItem('background', 'banner');
+      this.setBackgroundImg('sky');
+      this.selectedBackground = 'sky';
+      localStorage.setItem('background', 'sky');
     }
     this._preLoadBackgroundSource();
   };

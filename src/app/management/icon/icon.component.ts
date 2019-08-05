@@ -26,7 +26,7 @@ export class IconComponent implements OnInit {
     if (this.url.includes('budget-web')) {
       window.location.href = `http://182.61.36.66:8080/budget-web/budget/api/login?AUTH_TOKEN=${token}`;
     } else if (this.url.includes('Cost')) {
-      window.location.href = `http://47.106.179.127:8086/Cost/api/login?AUTH_TOKEN=${token}`;
+      window.location.href = `http://182.61.36.66:8080/Cost/api/login?AUTH_TOKEN=${token}`;
     } else if (this.url.includes('human')) {
       window.location.href = `http://182.61.36.66:8080/human/api/login?AUTH_TOKEN=${token}`;
     } else if (this.url.includes('sys')) {
