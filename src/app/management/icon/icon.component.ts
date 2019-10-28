@@ -1,10 +1,10 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { TokenService } from 'src/app/core/services/token.service';
+import { Component, OnInit, Input } from "@angular/core";
+import { TokenService } from "src/app/core/services/token.service";
 
 @Component({
-  selector: 'platform-icon',
-  templateUrl: './icon.component.html',
-  styleUrls: ['../../management/management.component.css']
+  selector: "platform-icon",
+  templateUrl: "./icon.component.html",
+  styleUrls: ["../../management/management.component.css"]
 })
 export class IconComponent implements OnInit {
   @Input() url: string;
@@ -21,26 +21,19 @@ export class IconComponent implements OnInit {
   ngOnInit() {}
 
   goToUrl() {
-    console.log(this.url);
     const token = this.tokenService.getToken();
-    if (this.url.includes('budget-web')) {
-      window.location.href = `http://182.61.36.66:8080/budget-web/budget/api/login?AUTH_TOKEN=${token}`;
-    } else if (this.url.includes('Cost')) {
-      window.location.href = `http://182.61.36.66:8080/Cost/api/login?AUTH_TOKEN=${token}`;
-    } else if (this.url.includes('human')) {
-      window.location.href = `http://182.61.36.66:8080/human/api/login?AUTH_TOKEN=${token}`;
-    } else if (this.url.includes('sys')) {
-      window.location.href = `http://182.61.36.66:8080/sys/api/login?AUTH_TOKEN=${token}`;
-    } else if (!this.authorized && !this.imgUrl.includes('Unknown')) {
+    if (!this.authorized && !this.imgUrl.includes("Unknown")) {
       let pdf = this.distractPdfName(this.imgUrl);
       window.open(`../../../assets/documents/${pdf}.pdf`);
+    } else {
+      window.location.href = `${this.url}?AUTH_TOKEN=${token}`;
     }
   }
 
   distractPdfName = (imgName: string) => {
     return imgName.substring(
-      imgName.lastIndexOf('/') + 1,
-      imgName.lastIndexOf('.')
+      imgName.lastIndexOf("/") + 1,
+      imgName.lastIndexOf(".")
     );
   };
 
