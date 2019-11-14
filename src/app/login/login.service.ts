@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable } from "@angular/core";
 import {
   RebirthHttp,
   POST,
@@ -7,21 +7,22 @@ import {
   Header,
   DefaultHeaders,
   Body
-} from 'rebirth-http';
-import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+} from "rebirth-http";
+import { Observable } from "rxjs";
+import { HttpClient } from "@angular/common/http";
+import { environment } from "../../environments/environment";
 
-@BaseUrl('http://182.61.36.66:8085')
+@BaseUrl(environment.API_URL)
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
-@DefaultHeaders({ 'Content-Type': 'application/json' })
+@DefaultHeaders({ "Content-Type": "application/json" })
 export class LoginService extends RebirthHttp {
   constructor(http: HttpClient) {
     super(http);
   }
 
-  @POST('/getAccessToken')
+  @POST("/getAccessToken")
   public auth(@Body password: string): Observable<any> {
     return null;
   }

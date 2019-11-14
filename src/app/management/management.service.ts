@@ -5,27 +5,28 @@ import {
   GET,
   BaseUrl,
   DefaultHeaders
-} from 'rebirth-http';
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+} from "rebirth-http";
+import { HttpClient } from "@angular/common/http";
+import { Injectable } from "@angular/core";
+import { Observable } from "rxjs";
+import { environment } from "../../environments/environment";
 
-@BaseUrl('http://182.61.36.66:8085')
+@BaseUrl(environment.API_URL)
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
-@DefaultHeaders({ 'Content-Type': 'application/json' })
+@DefaultHeaders({ "Content-Type": "application/json" })
 export class ManagementService extends RebirthHttp {
   constructor(http: HttpClient) {
     super(http);
   }
 
-  @POST('/changePWD')
+  @POST("/changePWD")
   public changePWD(userId: number, password: string): Observable<any> {
     return null;
   }
 
-  @POST('/link/list')
+  @POST("/link/list")
   public getAllIcons(): Observable<any> {
     return null;
   }

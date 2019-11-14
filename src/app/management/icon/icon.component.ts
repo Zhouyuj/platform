@@ -26,7 +26,7 @@ export class IconComponent implements OnInit {
       let pdf = this.distractPdfName(this.imgUrl);
       window.open(`../../../assets/documents/${pdf}.pdf`);
     } else {
-      window.location.href = `${this.url}?AUTH_TOKEN=${token}`;
+      window.open(`${this.url}?AUTH_TOKEN=${token}`, "_blank");
     }
   }
 
